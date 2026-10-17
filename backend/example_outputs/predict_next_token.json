@@ -18,6 +18,8 @@
   "temperature_used": 1.0,
   "top_k_used": 10,
   "temperature_explanation": "Temperature (1.0) scales the raw output logits before the softmax function: P(w_i) = exp(z_i / T) / sum_j exp(z_j / T). Higher temperature (> 1.0) flattens the distribution, producing more diverse and unpredictable tokens. Lower temperature (< 1.0) sharpens the probability peaks, favoring high-confidence tokens. Notice that temperature changes only the probability distribution during inference; it does NOT retrain or modify the model's weights.",
+  "explanation": "Temperature (1.0) scales the raw output logits before the softmax function: P(w_i) = exp(z_i / T) / sum_j exp(z_j / T). Higher temperature (> 1.0) flattens the distribution, producing more diverse and unpredictable tokens. Lower temperature (< 1.0) sharpens the probability peaks, favoring high-confidence tokens. Notice that temperature changes only the probability distribution during inference; it does NOT retrain or modify the model's weights.",
+  "explanation_origin": "Educational explanation",
   "top_candidates": [
     {
       "rank": 1,

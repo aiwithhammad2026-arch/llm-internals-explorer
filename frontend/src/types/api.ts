@@ -301,3 +301,36 @@ export interface CompareModelsResponse {
   explanation_origin?: DataOriginType;
   data_origin: DataOriginType;
 }
+
+export interface LogitLensCandidate {
+  token_id: number;
+  token_str: string;
+  probability: number;
+  logit: number;
+  rank: number;
+}
+
+export interface LogitLensLayerStep {
+  layer: number;
+  layer_name: string;
+  top_candidates: LogitLensCandidate[];
+  target_rank: number;
+  target_probability: number;
+  entropy: number;
+  cosine_sim_to_previous: number | null;
+  residual_norm: number;
+}
+
+export interface LogitLensResponse {
+  prompt: string;
+  token_count: number;
+  selected_token_index: number;
+  selected_token_str: string;
+  final_top_token_id: number;
+  final_top_token_str: string;
+  layers: LogitLensLayerStep[];
+  explanation: string;
+  explanation_origin?: DataOriginType;
+  data_origin: DataOriginType;
+}
+

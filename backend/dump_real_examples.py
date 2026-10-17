@@ -101,6 +101,13 @@ def main():
         json.dump(r_compare.json(), f, indent=2)
     print("Saved compare_models.json")
 
+    # 13. Logit Lens (Phase 10)
+    r_logit_lens = client.post("/api/logit-lens", json={"text": test_prompt, "top_k": 5})
+    assert r_logit_lens.status_code == 200
+    with open(os.path.join(out_dir, "logit_lens.json"), "w", encoding="utf-8") as f:
+        json.dump(r_logit_lens.json(), f, indent=2)
+    print("Saved logit_lens.json")
+
     print("\n=== Step 2: Numerical Consistency Verification ===")
     # Token 0 combined embedding slice from /api/embeddings
     emb_token0_slice = emb_data["tokens"][0]["combined_embedding_slice"]

@@ -230,5 +230,6 @@
     "max_recomputed_difference": 0.0
   },
   "explanation": "In Layer 0, Head 0, self-attention computes query-key alignment scores: A = softmax((Q @ K^T) / sqrt(64) + M), where M is the causal attention mask. Because GPT-2 is an autoregressive decoder, the causal mask sets all upper-triangle positions (where target position > source position) to -infinity before softmax, ensuring tokens can only attend to past and current tokens (upper triangle = 0.0). In GPT-2, many tokens put most attention on the first token, so high weight on it does not mean it is the most important word. Notice: Attention weights represent dynamic routing of information across token positions, but attention alone is NOT a complete explanation of model reasoning; downstream non-linear activations (GELU) and feed-forward projections deeply reshape the final hidden representations.",
+  "explanation_origin": "Educational explanation",
   "data_origin": "Real model output"
 }

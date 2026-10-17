@@ -247,6 +247,7 @@
     "top_1_agreement": true,
     "top_1_token": " the"
   },
-  "explanation": "Comparison between 'distilgpt2' and 'gpt2': distilgpt2 is a knowledge-distilled compression of gpt2 created by Hugging Face. It halves the depth from 12 transformer blocks to 6 layers while retaining the exact same 768 hidden dimension and 12 attention heads. This reduces parameters from ~124M to ~82M (~34% smaller), enabling roughly 2x faster forward-pass inference with minimal loss in language modeling fluency.",
+  "explanation": "Comparison between 'distilgpt2' and 'gpt2': distilgpt2 is a knowledge-distilled compression of gpt2 created by Hugging Face. It halves the depth from 12 transformer blocks to 6 layers while retaining the exact same 768 hidden dimension and 12 attention heads. This reduces parameters from 124,439,808 to 81,912,576 (~34% smaller), halving the sequential transformer layer count per forward pass; actual wall-clock speedup depends on CPU/GPU hardware and batch size.",
+  "explanation_origin": "Educational explanation",
   "data_origin": "Real model output"
 }

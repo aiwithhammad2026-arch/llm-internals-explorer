@@ -18,6 +18,7 @@ import type {
   DebugLogsResponse,
   DebugInfoResponse,
   CompareModelsResponse,
+  LogitLensResponse,
 } from '../types/api';
 
 const API_BASE = '/api';
@@ -149,5 +150,10 @@ export const api = {
     request<CompareModelsResponse>('/compare-models', {
       method: 'POST',
       body: JSON.stringify({ text, model_a, model_b }),
+    }),
+  getLogitLens: (text: string, token_index?: number, top_k: number = 5) =>
+    request<LogitLensResponse>('/logit-lens', {
+      method: 'POST',
+      body: JSON.stringify({ text, token_index, top_k }),
     }),
 };

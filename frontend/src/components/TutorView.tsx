@@ -108,6 +108,13 @@ export const TutorView: React.FC = () => {
         pipeline: ['input_hidden_state', 'ln_1', 'attn_output', 'residual_1', 'ln_2', 'mlp_output', 'residual_2'],
         architecture: 'Pre-LayerNorm with residual addition highways',
       },
+      'logit-lens': {
+        prompt: explainPrompt,
+        method: 'Unembedding with ln_f + lm_head',
+        target_token: ' the',
+        convergence_layers: 'Target rank #15114 at L0 -> #25 at L1 -> #4 at L5 -> #1 at L6',
+        final_entropy_nats: 5.41,
+      },
     };
 
     try {
@@ -331,6 +338,7 @@ export const TutorView: React.FC = () => {
                 >
                   <option value="attention">Attention Heatmap & Q/K/V</option>
                   <option value="blocks">Transformer Blocks (Pre-LN & MLP)</option>
+                  <option value="logit-lens">Logit Lens & Residual Stream Evolution</option>
                   <option value="embeddings">Embedding Inspector (wte + wpe)</option>
                   <option value="predict">Next-Token Prediction & Logits</option>
                   <option value="tokenizer">Tokenization Inspector (BPE)</option>

@@ -301,11 +301,35 @@ print("VERIFIED: Inspector results are unchanged after Tutor endpoints are calle
 print("This holds plainly because gemini_service has no access to model tensors.")
 ```
 
+### Claim 8: Logit Lens Final Layer Mathematically Matches Model Logits (Difference = 0.0)
+Applying the unembedding head (`ln_f + lm_head`) to the final hidden state produces identical logits to `model(**inputs).logits`:
+```python
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tok = AutoTokenizer.from_pretrained("distilgpt2")
+model = AutoModelForCausalLM.from_pretrained("distilgpt2")
+inputs = tok("The capital of France is", return_tensors="pt")
+
+with torch.no_grad():
+    outputs = model(**inputs, output_hidden_states=True)
+
+# Final layer hidden state in distilgpt2 is already post-ln_f
+final_layer_h = outputs.hidden_states[-1]
+logit_lens_final = model.lm_head(final_layer_h)[0, -1, :]
+model_final_logits = outputs.logits[0, -1, :]
+
+max_diff = torch.max(torch.abs(logit_lens_final - model_final_logits)).item()
+print(f"Max difference between Layer 6 Logit Lens and model.logits: {max_diff:.10e}")
+assert max_diff < 1e-6
+print("VERIFIED: Logit Lens final layer is mathematically identical to output logits.")
+```
+
 ---
 
 ## Screenshots
 
-The web dashboard is fully interactive. Placeholders for the 6 core exploration views:
+The web dashboard is fully interactive. Placeholders for the 7 core exploration views:
 
 1. `screenshot_01_tokenization.png` — **Tokenization Inspector:** BPE token chips, token IDs, byte displays, and PyTorch tensor shape `[1, seq_len]`.
 2. `screenshot_02_embeddings.png` — **Embedding Inspector:** Interactive dimension-by-dimension bar chart comparing `wte`, `wpe`, and their combined sum.
@@ -313,6 +337,7 @@ The web dashboard is fully interactive. Placeholders for the 6 core exploration 
 4. `screenshot_04_attention_heatmap.png` — **Attention Heatmap & Q/K/V:** CSS-grid self-attention matrix with causal mask upper-triangle shading and Q/K/V projection verification.
 5. `screenshot_05_block_inspection.png` — **Transformer Block Inspector:** Chronological waterfall diagram tracing activations across Pre-LN, self-attention, and MLP layers.
 6. `screenshot_06_model_comparison.png` — **Model Comparison & Debug Console:** Side-by-side `distilgpt2` vs `gpt2` architectural comparison and live request ring-buffer telemetry.
+7. `screenshot_07_logit_lens.png` — **Logit Lens & Residual Evolution:** Intermediate layer unembedding (`ln_f + lm_head`) tracing target token rank progression, Shannon entropy, and candidate emergence.
 
 ---
 

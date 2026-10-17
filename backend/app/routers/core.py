@@ -18,7 +18,9 @@ from ..schemas import (
     AttentionRequest,
     AttentionResponse,
     LayerInspectionRequest,
-    LayerInspectionResponse
+    LayerInspectionResponse,
+    LogitLensRequest,
+    LogitLensResponse
 )
 from ..model_loader import model_manager
 from ..services.tokenizer_service import tokenize_text
@@ -26,6 +28,7 @@ from ..services.embedding_service import extract_embeddings
 from ..services.generation_service import predict_next_token, generate_text
 from ..services.attention_service import extract_attention
 from ..services.inspection_service import inspect_layer
+from ..services.logit_lens_service import compute_logit_lens
 from ..services.debug_service import scrub_sensitive_text
 
 router = APIRouter(prefix="/api", tags=["core"])
@@ -212,3 +215,25 @@ def post_layer_inspection(req: LayerInspectionRequest) -> LayerInspectionRespons
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Layer inspection failed: {scrub_sensitive_text(str(e))}"
         )
+
+@router.post("/logit-lens", response_model=LogitLensResponse)
+def post_logit_lens(req: LogitLensRequest) -> LogitLensResponse:
+    """Applies the LM unembedding head across all residual stream layers to track prediction evolution."""
+    _ensure_model_ready()
+    try:
+        return compute_logit_lens(
+            text=req.text,
+            token_index=req.token_index,
+            top_k=req.top_k
+        )
+    except ValueError as ve:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=scrub_sensitive_text(str(ve))
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Logit Lens extraction failed: {scrub_sensitive_text(str(e))}"
+        )
+

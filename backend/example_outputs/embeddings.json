@@ -421,5 +421,6 @@
     }
   ],
   "explanation": "In GPT-2 style architectures, the initial input representation is formed by two learned embedding matrices: (1) Word Token Embedding (wte) maps vocabulary token IDs to continuous vectors. (2) Word Positional Embedding (wpe) maps sequence positions (0 to seq_len-1) to learned position vectors. These two vectors are added element-wise: combined = wte + wpe. In evaluation mode (dropout disabled), this sum is identically equal to the model's initial hidden state (hidden_states[0]) feeding into Block 0.",
+  "explanation_origin": "Educational explanation",
   "data_origin": "Real model output"
 }

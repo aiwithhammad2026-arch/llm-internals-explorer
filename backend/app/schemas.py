@@ -474,3 +474,48 @@ class CompareModelsResponse(BaseModel):
     explanation_origin: DataOriginType = "Educational explanation"
     data_origin: DataOriginType = "Real model output"
 
+
+class LogitLensRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=512, description="Input text to analyze through the Logit Lens")
+    token_index: Optional[int] = Field(None, description="Sequence token position to unembed (default: last token for next-token prediction)")
+    top_k: int = Field(5, ge=1, le=20, description="Number of candidate tokens to extract per layer")
+
+    @field_validator("text")
+    @classmethod
+    def validate_non_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("Text cannot be empty or whitespace only.")
+        return v
+
+
+class LogitLensCandidate(BaseModel):
+    token_id: int
+    token_str: str
+    probability: float
+    logit: float
+    rank: int
+
+
+class LogitLensLayerStep(BaseModel):
+    layer: int = Field(..., description="Layer index (0 is embedding output, 1..6 are Transformer blocks)")
+    layer_name: str = Field(..., description="Descriptive layer label")
+    top_candidates: List[LogitLensCandidate] = Field(..., description="Top-ranked candidate tokens at this intermediate layer")
+    target_rank: int = Field(..., description="Rank of the final layer's #1 predicted token at this layer")
+    target_probability: float = Field(..., description="Probability of the final layer's #1 predicted token at this layer")
+    entropy: float = Field(..., description="Shannon entropy (nats) across vocabulary at this layer")
+    cosine_sim_to_previous: Optional[float] = Field(None, description="Cosine similarity of residual hidden state to previous layer")
+    residual_norm: float = Field(..., description="L2 norm of residual hidden state vector")
+
+
+class LogitLensResponse(BaseModel):
+    prompt: str
+    token_count: int
+    selected_token_index: int
+    selected_token_str: str
+    final_top_token_id: int
+    final_top_token_str: str
+    layers: List[LogitLensLayerStep]
+    explanation: str = Field(..., description="Educational explanation of Logit Lens unembedding and prediction evolution")
+    explanation_origin: DataOriginType = "Educational explanation"
+    data_origin: DataOriginType = "Real model output"
+

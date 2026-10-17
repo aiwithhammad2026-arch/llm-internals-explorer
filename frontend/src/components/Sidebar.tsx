@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FileCode,
   Binary,
@@ -12,7 +11,8 @@ import {
   CheckCircle2,
   AlertCircle,
   Clock,
-  X
+  X,
+  Sparkles
 } from 'lucide-react';
 import type { HealthResponse } from '../types/api';
 
@@ -22,6 +22,7 @@ export type ActiveTab =
   | 'predict'
   | 'attention'
   | 'blocks'
+  | 'logit-lens'
   | 'tutor'
   | 'debug'
   | 'compare';
@@ -85,6 +86,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       phase: 'Phase 5',
       enabled: true,
       desc: 'LayerNorm, MLP & Residuals',
+    },
+    {
+      id: 'logit-lens' as ActiveTab,
+      label: 'Logit Lens Evolution',
+      icon: Sparkles,
+      phase: 'Phase 10',
+      enabled: true,
+      desc: 'Residual layer prediction emergence',
     },
     {
       id: 'tutor' as ActiveTab,

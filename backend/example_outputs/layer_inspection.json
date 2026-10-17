@@ -272,5 +272,6 @@
     50257
   ],
   "explanation": "Transformer Block 0 operates on a continuous residual stream. GPT-2 uses Pre-Layer Normalization (Pre-LN): activations are normalized before each sub-layer. The first sub-layer applies multi-head self-attention and adds its result back to the residual stream (x + Attn(LN1(x))). The second sub-layer applies a position-wise feed-forward network (768 -> 3072 -> 768 with GELU) and adds its result back to the stream (x + MLP(LN2(x))). Notice that residual connections act as high-speed information highways, preserving gradients and identity across depth.",
+  "explanation_origin": "Educational explanation",
   "data_origin": "Real model output"
 }

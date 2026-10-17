@@ -1,0 +1,335 @@
+{
+  "prompt": "The capital of France is",
+  "token_count": 5,
+  "selected_token_index": 4,
+  "selected_token_str": " is",
+  "final_top_token_id": 262,
+  "final_top_token_str": " the",
+  "layers": [
+    {
+      "layer": 0,
+      "layer_name": "Embedding (Layer 0)",
+      "top_candidates": [
+        {
+          "token_id": 318,
+          "token_str": " is",
+          "probability": 0.992134,
+          "logit": 83.8622,
+          "rank": 1
+        },
+        {
+          "token_id": 11896,
+          "token_str": " mathemat",
+          "probability": 0.00282,
+          "logit": 77.9993,
+          "rank": 2
+        },
+        {
+          "token_id": 11411,
+          "token_str": " destro",
+          "probability": 0.001976,
+          "logit": 77.6434,
+          "rank": 3
+        },
+        {
+          "token_id": 468,
+          "token_str": " has",
+          "probability": 0.000922,
+          "logit": 76.881,
+          "rank": 4
+        },
+        {
+          "token_id": 20532,
+          "token_str": " livest",
+          "probability": 0.000782,
+          "logit": 76.7166,
+          "rank": 5
+        }
+      ],
+      "target_rank": 15114,
+      "target_probability": 0.0,
+      "entropy": 0.06,
+      "cosine_sim_to_previous": null,
+      "residual_norm": 5.0919
+    },
+    {
+      "layer": 1,
+      "layer_name": "Block 0 (Layer 1)",
+      "top_candidates": [
+        {
+          "token_id": 407,
+          "token_str": " not",
+          "probability": 0.681366,
+          "logit": 5.6016,
+          "rank": 1
+        },
+        {
+          "token_id": 991,
+          "token_str": " still",
+          "probability": 0.093206,
+          "logit": 3.6123,
+          "rank": 2
+        },
+        {
+          "token_id": 635,
+          "token_str": " also",
+          "probability": 0.051571,
+          "logit": 3.0205,
+          "rank": 3
+        },
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.051102,
+          "logit": 3.0113,
+          "rank": 4
+        },
+        {
+          "token_id": 257,
+          "token_str": " a",
+          "probability": 0.021531,
+          "logit": 2.147,
+          "rank": 5
+        }
+      ],
+      "target_rank": 25,
+      "target_probability": 0.001486,
+      "entropy": 1.5987,
+      "cosine_sim_to_previous": 0.168648,
+      "residual_norm": 43.0668
+    },
+    {
+      "layer": 2,
+      "layer_name": "Block 1 (Layer 2)",
+      "top_candidates": [
+        {
+          "token_id": 407,
+          "token_str": " not",
+          "probability": 0.460784,
+          "logit": -1.1567,
+          "rank": 1
+        },
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.156942,
+          "logit": -2.2337,
+          "rank": 2
+        },
+        {
+          "token_id": 635,
+          "token_str": " also",
+          "probability": 0.114152,
+          "logit": -2.5521,
+          "rank": 3
+        },
+        {
+          "token_id": 991,
+          "token_str": " still",
+          "probability": 0.073796,
+          "logit": -2.9883,
+          "rank": 4
+        },
+        {
+          "token_id": 3058,
+          "token_str": " currently",
+          "probability": 0.04268,
+          "logit": -3.5359,
+          "rank": 5
+        }
+      ],
+      "target_rank": 21,
+      "target_probability": 0.002516,
+      "entropy": 2.22,
+      "cosine_sim_to_previous": 0.964831,
+      "residual_norm": 51.6844
+    },
+    {
+      "layer": 3,
+      "layer_name": "Block 2 (Layer 3)",
+      "top_candidates": [
+        {
+          "token_id": 407,
+          "token_str": " not",
+          "probability": 0.450544,
+          "logit": -8.0992,
+          "rank": 1
+        },
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.338556,
+          "logit": -8.385,
+          "rank": 2
+        },
+        {
+          "token_id": 635,
+          "token_str": " also",
+          "probability": 0.046511,
+          "logit": -10.37,
+          "rank": 3
+        },
+        {
+          "token_id": 991,
+          "token_str": " still",
+          "probability": 0.022106,
+          "logit": -11.1138,
+          "rank": 4
+        },
+        {
+          "token_id": 3058,
+          "token_str": " currently",
+          "probability": 0.021936,
+          "logit": -11.1215,
+          "rank": 5
+        }
+      ],
+      "target_rank": 12,
+      "target_probability": 0.00326,
+      "entropy": 1.8065,
+      "cosine_sim_to_previous": 0.944266,
+      "residual_norm": 61.0669
+    },
+    {
+      "layer": 4,
+      "layer_name": "Block 3 (Layer 4)",
+      "top_candidates": [
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.854026,
+          "logit": -23.6826,
+          "rank": 1
+        },
+        {
+          "token_id": 3058,
+          "token_str": " currently",
+          "probability": 0.028061,
+          "logit": -27.0981,
+          "rank": 2
+        },
+        {
+          "token_id": 5140,
+          "token_str": " located",
+          "probability": 0.025373,
+          "logit": -27.1989,
+          "rank": 3
+        },
+        {
+          "token_id": 407,
+          "token_str": " not",
+          "probability": 0.02097,
+          "logit": -27.3894,
+          "rank": 4
+        },
+        {
+          "token_id": 991,
+          "token_str": " still",
+          "probability": 0.008405,
+          "logit": -28.3037,
+          "rank": 5
+        }
+      ],
+      "target_rank": 11,
+      "target_probability": 0.002987,
+      "entropy": 0.8782,
+      "cosine_sim_to_previous": 0.91907,
+      "residual_norm": 78.7939
+    },
+    {
+      "layer": 5,
+      "layer_name": "Block 4 (Layer 5)",
+      "top_candidates": [
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.228438,
+          "logit": -56.5433,
+          "rank": 1
+        },
+        {
+          "token_id": 5140,
+          "token_str": " located",
+          "probability": 0.081944,
+          "logit": -57.5686,
+          "rank": 2
+        },
+        {
+          "token_id": 1900,
+          "token_str": " known",
+          "probability": 0.062491,
+          "logit": -57.8396,
+          "rank": 3
+        },
+        {
+          "token_id": 262,
+          "token_str": " the",
+          "probability": 0.048863,
+          "logit": -58.0856,
+          "rank": 4
+        },
+        {
+          "token_id": 3058,
+          "token_str": " currently",
+          "probability": 0.042679,
+          "logit": -58.2209,
+          "rank": 5
+        }
+      ],
+      "target_rank": 4,
+      "target_probability": 0.048863,
+      "entropy": 4.1341,
+      "cosine_sim_to_previous": 0.894451,
+      "residual_norm": 152.379
+    },
+    {
+      "layer": 6,
+      "layer_name": "Block 5 (Layer 6)",
+      "top_candidates": [
+        {
+          "token_id": 262,
+          "token_str": " the",
+          "probability": 0.117744,
+          "logit": -57.3821,
+          "rank": 1
+        },
+        {
+          "token_id": 1363,
+          "token_str": " home",
+          "probability": 0.082269,
+          "logit": -57.7406,
+          "rank": 2
+        },
+        {
+          "token_id": 783,
+          "token_str": " now",
+          "probability": 0.049868,
+          "logit": -58.2412,
+          "rank": 3
+        },
+        {
+          "token_id": 257,
+          "token_str": " a",
+          "probability": 0.049335,
+          "logit": -58.252,
+          "rank": 4
+        },
+        {
+          "token_id": 852,
+          "token_str": " being",
+          "probability": 0.035612,
+          "logit": -58.5779,
+          "rank": 5
+        }
+      ],
+      "target_rank": 1,
+      "target_probability": 0.117744,
+      "entropy": 5.4098,
+      "cosine_sim_to_previous": 0.385735,
+      "residual_norm": 159.9159
+    }
+  ],
+  "explanation": "The Logit Lens applies the model's final unembedding projection (ln_f + lm_head) to each intermediate hidden state along the residual stream. In Transformer architectures, representations evolve hierarchically: early layers prioritize syntactic and positional structure, intermediate layers assemble semantic and relational context, and late layers refine the final vocabulary distribution. Tracking the rank and probability of the final output token ' the' shows the exact layer where the model's final prediction crystallized.",
+  "explanation_origin": "Educational explanation",
+  "data_origin": "Real model output"
+}

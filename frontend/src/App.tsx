@@ -29,6 +29,9 @@ const DebugConsole = lazy(() =>
 const ModelComparisonView = lazy(() =>
   import('./components/ModelComparisonView').then((m) => ({ default: m.ModelComparisonView }))
 );
+const LogitLensView = lazy(() =>
+  import('./components/LogitLensView').then((m) => ({ default: m.LogitLensView }))
+);
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('tokenizer');
@@ -186,6 +189,7 @@ export const App: React.FC = () => {
             {activeTab === 'predict' && <NextTokenView />}
             {activeTab === 'attention' && <AttentionView />}
             {activeTab === 'blocks' && <BlockInspectionView />}
+            {activeTab === 'logit-lens' && <LogitLensView />}
             {activeTab === 'tutor' && <TutorView />}
             {activeTab === 'debug' && <DebugConsole />}
             {activeTab === 'compare' && <ModelComparisonView />}
