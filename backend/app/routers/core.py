@@ -34,7 +34,7 @@ from ..services.logit_lens_service import compute_logit_lens
 from ..services.rollout_service import compute_attention_rollout
 from ..services.debug_service import scrub_sensitive_text
 
-router = APIRouter(prefix="/api", tags=["core"])
+router = APIRouter(tags=["core"])
 
 def _ensure_model_ready():
     """Helper to ensure model is ready or attempt initialization."""
@@ -141,6 +141,7 @@ def post_embeddings(req: EmbeddingRequest) -> EmbeddingResponse:
         )
 
 @router.post("/predict-next-token", response_model=PredictNextTokenResponse)
+@router.post("/predict", response_model=PredictNextTokenResponse)
 def post_predict_next_token(req: PredictNextTokenRequest) -> PredictNextTokenResponse:
     """Performs real model forward pass to compute next-token probabilities and top-k candidate rankings."""
     _ensure_model_ready()
@@ -197,6 +198,7 @@ def post_attention(req: AttentionRequest) -> AttentionResponse:
         )
 
 @router.post("/layer-inspection", response_model=LayerInspectionResponse)
+@router.post("/inspect", response_model=LayerInspectionResponse)
 def post_layer_inspection(req: LayerInspectionRequest) -> LayerInspectionResponse:
     """Captures real intermediate activations at each sub-layer of a Transformer block using hooks."""
     _ensure_model_ready()

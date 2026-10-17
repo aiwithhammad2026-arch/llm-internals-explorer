@@ -12,7 +12,7 @@ from ..schemas import (
 )
 from ..services import debug_service, comparison_service
 
-router = APIRouter(prefix="/api", tags=["Debug & Comparison"])
+router = APIRouter(tags=["Debug & Comparison"])
 
 @router.get("/debug/logs", response_model=DebugLogsResponse)
 def get_logs() -> DebugLogsResponse:

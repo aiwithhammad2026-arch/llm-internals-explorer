@@ -90,10 +90,14 @@ async def record_request_middleware(request: Request, call_next):
                 errors=errors_captured,
             )
 
-# Include Routers
-app.include_router(core.router)
-app.include_router(tutor.router)
-app.include_router(debug.router)
+# Include Routers with /api prefix (for frontend) and root prefix (for direct CLI accessibility)
+app.include_router(core.router, prefix="/api")
+app.include_router(tutor.router, prefix="/api")
+app.include_router(debug.router, prefix="/api")
+
+app.include_router(core.router, prefix="")
+app.include_router(tutor.router, prefix="")
+app.include_router(debug.router, prefix="")
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):

@@ -16,7 +16,7 @@ from ..schemas import (
 )
 from ..services import gemini_service
 
-router = APIRouter(prefix="/api/tutor", tags=["Gemini AI Tutor"])
+router = APIRouter(prefix="/tutor", tags=["Gemini AI Tutor"])
 
 @router.get("/status", response_model=TutorStatusResponse)
 def get_status() -> TutorStatusResponse:
