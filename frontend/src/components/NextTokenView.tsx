@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { api, ApiError } from '../services/api';
 import type { PredictNextTokenResponse, GenerateResponse, TutorCompareGenerationResponse } from '../types/api';
 import { Badge } from './Badge';
@@ -90,8 +90,19 @@ export const NextTokenView: React.FC<NextTokenViewProps> = ({
     }
   };
 
+  const tempRef = useRef(temperature);
+  const topKRef = useRef(topK);
+
   useEffect(() => {
-    handlePredict(initialPrompt, 0.7, 5);
+    tempRef.current = temperature;
+  }, [temperature]);
+
+  useEffect(() => {
+    topKRef.current = topK;
+  }, [topK]);
+
+  useEffect(() => {
+    handlePredict(initialPrompt, tempRef.current, topKRef.current);
   }, [initialPrompt]);
 
   // Format chart data
