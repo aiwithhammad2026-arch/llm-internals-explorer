@@ -1,0 +1,80 @@
+{
+  "prompt": "The capital of France is",
+  "prompt_token_count": 5,
+  "generated_text": "The capital of France is known for its military, military and economic security,",
+  "continuation": " known for its military, military and economic security,",
+  "new_token_ids": [
+    1900,
+    329,
+    663,
+    2422,
+    11,
+    2422,
+    290,
+    3034,
+    2324,
+    11
+  ],
+  "new_tokens": [
+    {
+      "step": 1,
+      "token_id": 1900,
+      "token_str": " known"
+    },
+    {
+      "step": 2,
+      "token_id": 329,
+      "token_str": " for"
+    },
+    {
+      "step": 3,
+      "token_id": 663,
+      "token_str": " its"
+    },
+    {
+      "step": 4,
+      "token_id": 2422,
+      "token_str": " military"
+    },
+    {
+      "step": 5,
+      "token_id": 11,
+      "token_str": ","
+    },
+    {
+      "step": 6,
+      "token_id": 2422,
+      "token_str": " military"
+    },
+    {
+      "step": 7,
+      "token_id": 290,
+      "token_str": " and"
+    },
+    {
+      "step": 8,
+      "token_id": 3034,
+      "token_str": " economic"
+    },
+    {
+      "step": 9,
+      "token_id": 2324,
+      "token_str": " security"
+    },
+    {
+      "step": 10,
+      "token_id": 11,
+      "token_str": ","
+    }
+  ],
+  "new_token_count": 10,
+  "finish_reason": "max_tokens",
+  "settings": {
+    "max_new_tokens": 10,
+    "temperature": 0.7,
+    "top_k": 50,
+    "do_sample": true,
+    "seed": 42
+  },
+  "data_origin": "Real model output"
+}

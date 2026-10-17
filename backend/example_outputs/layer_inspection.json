@@ -1,0 +1,276 @@
+{
+  "text": "The capital of France is",
+  "layer": 0,
+  "token_index": 0,
+  "token_str": "The",
+  "num_layers": 6,
+  "num_heads": 12,
+  "hidden_size": 768,
+  "token_count": 5,
+  "tokens": [
+    "The",
+    " capital",
+    " of",
+    " France",
+    " is"
+  ],
+  "components": [
+    {
+      "name": "input_hidden_state",
+      "description": "Hidden representation entering this block (output from previous block or embedding)",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.081469,
+        -0.242325,
+        0.059914,
+        -0.04331,
+        -0.053302,
+        -0.177883,
+        -0.186319,
+        -0.171249,
+        -0.042258,
+        -0.032854,
+        -0.061156,
+        0.057942,
+        0.070603,
+        0.001297,
+        0.135322,
+        -0.189919
+      ],
+      "stats": {
+        "min": -4.52279,
+        "max": 3.716461,
+        "mean": -0.008781,
+        "std": 0.367853,
+        "norm": 10.190497
+      },
+      "is_captured": true
+    },
+    {
+      "name": "ln_1_output",
+      "description": "Normalized activations from LayerNorm 1 prior to multi-head self-attention (Pre-LN)",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.03861,
+        -0.104816,
+        0.010365,
+        -0.022358,
+        -0.02998,
+        -0.089395,
+        0.156486,
+        -0.061814,
+        -0.02923,
+        -0.021567,
+        -0.040623,
+        0.02744,
+        0.014014,
+        -0.006513,
+        0.049817,
+        -0.094954
+      ],
+      "stats": {
+        "min": -0.648805,
+        "max": 0.57271,
+        "mean": -0.003754,
+        "std": 0.070382,
+        "norm": 1.951987
+      },
+      "is_captured": true
+    },
+    {
+      "name": "attn_output",
+      "description": "Projected multi-head attention output (after c_proj)",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.051743,
+        -0.73219,
+        1.400551,
+        0.029203,
+        0.042245,
+        0.057566,
+        -0.118096,
+        0.042064,
+        0.240595,
+        -0.050297,
+        0.746295,
+        0.100877,
+        -0.1069,
+        0.054637,
+        0.278745,
+        0.200199
+      ],
+      "stats": {
+        "min": -14.507284,
+        "max": 15.926464,
+        "mean": 0.027648,
+        "std": 0.97772,
+        "norm": 27.088554
+      },
+      "is_captured": true
+    },
+    {
+      "name": "residual_after_attn",
+      "description": "First residual stream addition: input + Attention(LN_1(input))",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.133212,
+        -0.974515,
+        1.460465,
+        -0.014107,
+        -0.011057,
+        -0.120317,
+        -0.304416,
+        -0.129186,
+        0.198337,
+        -0.08315,
+        0.685139,
+        0.158819,
+        -0.036297,
+        0.055934,
+        0.414067,
+        0.01028
+      ],
+      "stats": {
+        "min": -14.726296,
+        "max": 16.165863,
+        "mean": 0.018867,
+        "std": 1.100793,
+        "norm": 30.490679
+      },
+      "is_captured": true
+    },
+    {
+      "name": "ln_2_output",
+      "description": "Normalized activations from LayerNorm 2 prior to Feed-Forward Network (Pre-LN)",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        0.019965,
+        -0.138425,
+        0.288255,
+        -0.015813,
+        -0.029383,
+        -0.177796,
+        -0.008336,
+        0.050904,
+        0.057633,
+        -0.119484,
+        0.136522,
+        0.142361,
+        -0.078054,
+        0.042254,
+        0.229919,
+        0.001634
+      ],
+      "stats": {
+        "min": -1.701462,
+        "max": 1.359638,
+        "mean": 0.003509,
+        "std": 0.192252,
+        "norm": 5.32527
+      },
+      "is_captured": true
+    },
+    {
+      "name": "mlp_output",
+      "description": "Feed-forward network output after GELU activation and dimension projection (c_proj)",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.052917,
+        0.114341,
+        -0.372866,
+        0.22672,
+        -0.246765,
+        0.007196,
+        -1.476885,
+        0.666374,
+        -0.794701,
+        0.19177,
+        -0.233106,
+        0.181773,
+        -0.003981,
+        -1.077421,
+        0.336635,
+        -0.266515
+      ],
+      "stats": {
+        "min": -52.3078,
+        "max": 216.43074,
+        "mean": 0.267393,
+        "std": 8.167732,
+        "norm": 226.324783
+      },
+      "is_captured": true
+    },
+    {
+      "name": "residual_after_mlp",
+      "description": "Second residual stream addition: residual_1 + MLP(LN_2(residual_1)), exiting the block",
+      "shape": [
+        1,
+        5,
+        768
+      ],
+      "slice_values": [
+        -0.186129,
+        -0.860173,
+        1.087599,
+        0.212613,
+        -0.257822,
+        -0.11312,
+        -1.781301,
+        0.537188,
+        -0.596363,
+        0.10862,
+        0.452033,
+        0.340591,
+        -0.040278,
+        -1.021486,
+        0.750702,
+        -0.256234
+      ],
+      "stats": {
+        "min": -52.540253,
+        "max": 217.3013,
+        "mean": 0.286261,
+        "std": 8.358953,
+        "norm": 231.635132
+      },
+      "is_captured": true
+    }
+  ],
+  "final_hidden_state_shape": [
+    1,
+    5,
+    768
+  ],
+  "logits_shape": [
+    1,
+    5,
+    50257
+  ],
+  "explanation": "Transformer Block 0 operates on a continuous residual stream. GPT-2 uses Pre-Layer Normalization (Pre-LN): activations are normalized before each sub-layer. The first sub-layer applies multi-head self-attention and adds its result back to the residual stream (x + Attn(LN1(x))). The second sub-layer applies a position-wise feed-forward network (768 -> 3072 -> 768 with GELU) and adds its result back to the stream (x + MLP(LN2(x))). Notice that residual connections act as high-speed information highways, preserving gradients and identity across depth.",
+  "data_origin": "Real model output"
+}

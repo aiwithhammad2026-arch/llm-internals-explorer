@@ -1,0 +1,12 @@
+{
+  "model_name": "distilgpt2",
+  "model_revision": "2290a62682d06624634c1f46a6ad5be0f47f38aa",
+  "device": "cpu",
+  "dtype": "float32",
+  "attn_implementation": "eager",
+  "tokenizer_class": "GPT2Tokenizer",
+  "vocab_size": 50257,
+  "torch_version": "2.14.1+cpu",
+  "transformers_version": "5.20.1",
+  "data_origin": "Real model output"
+}

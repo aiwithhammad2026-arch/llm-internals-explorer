@@ -1,0 +1,117 @@
+{
+  "prompt": "The capital of France is",
+  "prompt_token_ids": [
+    464,
+    3139,
+    286,
+    4881,
+    318
+  ],
+  "prompt_tokens": [
+    "The",
+    " capital",
+    " of",
+    " France",
+    " is"
+  ],
+  "vocab_size": 50257,
+  "temperature_used": 1.0,
+  "top_k_used": 10,
+  "temperature_explanation": "Temperature (1.0) scales the raw output logits before the softmax function: P(w_i) = exp(z_i / T) / sum_j exp(z_j / T). Higher temperature (> 1.0) flattens the distribution, producing more diverse and unpredictable tokens. Lower temperature (< 1.0) sharpens the probability peaks, favoring high-confidence tokens. Notice that temperature changes only the probability distribution during inference; it does NOT retrain or modify the model's weights.",
+  "top_candidates": [
+    {
+      "rank": 1,
+      "token_id": 262,
+      "token_str": " the",
+      "token_bytes_display": "\u2423the",
+      "logit": -57.3821,
+      "probability": 0.117744,
+      "cumulative_probability": 0.117744
+    },
+    {
+      "rank": 2,
+      "token_id": 1363,
+      "token_str": " home",
+      "token_bytes_display": "\u2423home",
+      "logit": -57.7406,
+      "probability": 0.082269,
+      "cumulative_probability": 0.200014
+    },
+    {
+      "rank": 3,
+      "token_id": 783,
+      "token_str": " now",
+      "token_bytes_display": "\u2423now",
+      "logit": -58.2412,
+      "probability": 0.049868,
+      "cumulative_probability": 0.249882
+    },
+    {
+      "rank": 4,
+      "token_id": 257,
+      "token_str": " a",
+      "token_bytes_display": "\u2423a",
+      "logit": -58.252,
+      "probability": 0.049335,
+      "cumulative_probability": 0.299217
+    },
+    {
+      "rank": 5,
+      "token_id": 852,
+      "token_str": " being",
+      "token_bytes_display": "\u2423being",
+      "logit": -58.5779,
+      "probability": 0.035612,
+      "cumulative_probability": 0.334829
+    },
+    {
+      "rank": 6,
+      "token_id": 530,
+      "token_str": " one",
+      "token_bytes_display": "\u2423one",
+      "logit": -59.1009,
+      "probability": 0.021109,
+      "cumulative_probability": 0.355938
+    },
+    {
+      "rank": 7,
+      "token_id": 1900,
+      "token_str": " known",
+      "token_bytes_display": "\u2423known",
+      "logit": -59.2094,
+      "probability": 0.018939,
+      "cumulative_probability": 0.374877
+    },
+    {
+      "rank": 8,
+      "token_id": 635,
+      "token_str": " also",
+      "token_bytes_display": "\u2423also",
+      "logit": -59.2149,
+      "probability": 0.018835,
+      "cumulative_probability": 0.393712
+    },
+    {
+      "rank": 9,
+      "token_id": 287,
+      "token_str": " in",
+      "token_bytes_display": "\u2423in",
+      "logit": -59.2623,
+      "probability": 0.017963,
+      "cumulative_probability": 0.411674
+    },
+    {
+      "rank": 10,
+      "token_id": 284,
+      "token_str": " to",
+      "token_bytes_display": "\u2423to",
+      "logit": -59.5085,
+      "probability": 0.014042,
+      "cumulative_probability": 0.425717
+    }
+  ],
+  "top_1_token_id": 262,
+  "top_1_token_str": " the",
+  "total_probability_top_k": 0.425717,
+  "data_origin": "Real model output"
+}

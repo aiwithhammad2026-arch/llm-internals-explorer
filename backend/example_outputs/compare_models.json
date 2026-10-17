@@ -1,0 +1,252 @@
+{
+  "text": "The capital of France is",
+  "model_a": {
+    "model_name": "distilgpt2",
+    "param_count": 81912576,
+    "param_count_display": "81.9M (~82M)",
+    "hidden_size": 768,
+    "num_layers": 6,
+    "num_heads": 12,
+    "vocab_size": 50257,
+    "tokens": [
+      "The",
+      " capital",
+      " of",
+      " France",
+      " is"
+    ],
+    "token_ids": [
+      464,
+      3139,
+      286,
+      4881,
+      318
+    ],
+    "top_candidates": [
+      {
+        "rank": 1,
+        "token_id": 262,
+        "token_str": " the",
+        "token_bytes_display": " the",
+        "logit": -57.3821,
+        "probability": 0.117744,
+        "cumulative_probability": 0.117744
+      },
+      {
+        "rank": 2,
+        "token_id": 1363,
+        "token_str": " home",
+        "token_bytes_display": " home",
+        "logit": -57.7406,
+        "probability": 0.082269,
+        "cumulative_probability": 0.200014
+      },
+      {
+        "rank": 3,
+        "token_id": 783,
+        "token_str": " now",
+        "token_bytes_display": " now",
+        "logit": -58.2412,
+        "probability": 0.049868,
+        "cumulative_probability": 0.249882
+      },
+      {
+        "rank": 4,
+        "token_id": 257,
+        "token_str": " a",
+        "token_bytes_display": " a",
+        "logit": -58.252,
+        "probability": 0.049335,
+        "cumulative_probability": 0.299217
+      },
+      {
+        "rank": 5,
+        "token_id": 852,
+        "token_str": " being",
+        "token_bytes_display": " being",
+        "logit": -58.5779,
+        "probability": 0.035612,
+        "cumulative_probability": 0.334829
+      },
+      {
+        "rank": 6,
+        "token_id": 530,
+        "token_str": " one",
+        "token_bytes_display": " one",
+        "logit": -59.1009,
+        "probability": 0.021109,
+        "cumulative_probability": 0.355938
+      },
+      {
+        "rank": 7,
+        "token_id": 1900,
+        "token_str": " known",
+        "token_bytes_display": " known",
+        "logit": -59.2094,
+        "probability": 0.018939,
+        "cumulative_probability": 0.374877
+      },
+      {
+        "rank": 8,
+        "token_id": 635,
+        "token_str": " also",
+        "token_bytes_display": " also",
+        "logit": -59.2149,
+        "probability": 0.018835,
+        "cumulative_probability": 0.393712
+      },
+      {
+        "rank": 9,
+        "token_id": 287,
+        "token_str": " in",
+        "token_bytes_display": " in",
+        "logit": -59.2623,
+        "probability": 0.017963,
+        "cumulative_probability": 0.411674
+      },
+      {
+        "rank": 10,
+        "token_id": 284,
+        "token_str": " to",
+        "token_bytes_display": " to",
+        "logit": -59.5085,
+        "probability": 0.014042,
+        "cumulative_probability": 0.425717
+      }
+    ],
+    "top_1_token_id": 262,
+    "top_1_token_str": " the",
+    "top_1_probability": 0.117744,
+    "total_top_k_prob": 0.425717
+  },
+  "model_b": {
+    "model_name": "gpt2",
+    "param_count": 124439808,
+    "param_count_display": "124.4M (~124M)",
+    "hidden_size": 768,
+    "num_layers": 12,
+    "num_heads": 12,
+    "vocab_size": 50257,
+    "tokens": [
+      "The",
+      " capital",
+      " of",
+      " France",
+      " is"
+    ],
+    "token_ids": [
+      464,
+      3139,
+      286,
+      4881,
+      318
+    ],
+    "top_candidates": [
+      {
+        "rank": 1,
+        "token_id": 262,
+        "token_str": " the",
+        "token_bytes_display": " the",
+        "logit": -100.2498,
+        "probability": 0.084591,
+        "cumulative_probability": 0.084591
+      },
+      {
+        "rank": 2,
+        "token_id": 783,
+        "token_str": " now",
+        "token_bytes_display": " now",
+        "logit": -100.8175,
+        "probability": 0.047947,
+        "cumulative_probability": 0.132538
+      },
+      {
+        "rank": 3,
+        "token_id": 257,
+        "token_str": " a",
+        "token_bytes_display": " a",
+        "logit": -100.8555,
+        "probability": 0.04616,
+        "cumulative_probability": 0.178699
+      },
+      {
+        "rank": 4,
+        "token_id": 4881,
+        "token_str": " France",
+        "token_bytes_display": " France",
+        "logit": -101.2102,
+        "probability": 0.032378,
+        "cumulative_probability": 0.211077
+      },
+      {
+        "rank": 5,
+        "token_id": 6342,
+        "token_str": " Paris",
+        "token_bytes_display": " Paris",
+        "logit": -101.2143,
+        "probability": 0.032245,
+        "cumulative_probability": 0.243321
+      },
+      {
+        "rank": 6,
+        "token_id": 287,
+        "token_str": " in",
+        "token_bytes_display": " in",
+        "logit": -101.4052,
+        "probability": 0.026641,
+        "cumulative_probability": 0.269962
+      },
+      {
+        "rank": 7,
+        "token_id": 635,
+        "token_str": " also",
+        "token_bytes_display": " also",
+        "logit": -101.4141,
+        "probability": 0.026404,
+        "cumulative_probability": 0.296366
+      },
+      {
+        "rank": 8,
+        "token_id": 407,
+        "token_str": " not",
+        "token_bytes_display": " not",
+        "logit": -101.5168,
+        "probability": 0.023828,
+        "cumulative_probability": 0.320194
+      },
+      {
+        "rank": 9,
+        "token_id": 1363,
+        "token_str": " home",
+        "token_bytes_display": " home",
+        "logit": -101.5371,
+        "probability": 0.023348,
+        "cumulative_probability": 0.343542
+      },
+      {
+        "rank": 10,
+        "token_id": 991,
+        "token_str": " still",
+        "token_bytes_display": " still",
+        "logit": -101.9463,
+        "probability": 0.015508,
+        "cumulative_probability": 0.359051
+      }
+    ],
+    "top_1_token_id": 262,
+    "top_1_token_str": " the",
+    "top_1_probability": 0.084591,
+    "total_top_k_prob": 0.359051
+  },
+  "differences": {
+    "parameter_delta": 42527232,
+    "parameter_ratio": 1.52,
+    "layer_delta": 6,
+    "shared_hidden_size": true,
+    "shared_vocab_size": true,
+    "top_1_agreement": true,
+    "top_1_token": " the"
+  },
+  "explanation": "Comparison between 'distilgpt2' and 'gpt2': distilgpt2 is a knowledge-distilled compression of gpt2 created by Hugging Face. It halves the depth from 12 transformer blocks to 6 layers while retaining the exact same 768 hidden dimension and 12 attention heads. This reduces parameters from ~124M to ~82M (~34% smaller), enabling roughly 2x faster forward-pass inference with minimal loss in language modeling fluency.",
+  "data_origin": "Real model output"
+}

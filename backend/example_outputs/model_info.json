@@ -1,0 +1,14 @@
+{
+  "model_name": "distilgpt2",
+  "architecture": "GPT2LMHeadModel",
+  "num_layers": 6,
+  "num_heads": 12,
+  "hidden_size": 768,
+  "vocab_size": 50257,
+  "max_position_embeddings": 1024,
+  "num_parameters": 81912576,
+  "device": "cpu",
+  "attn_implementation": "eager",
+  "trust_remote_code": false,
+  "data_origin": "Real model output"
+}

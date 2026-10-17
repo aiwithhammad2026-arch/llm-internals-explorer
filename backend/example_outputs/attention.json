@@ -1,0 +1,234 @@
+{
+  "text": "The capital of France is",
+  "layer": 0,
+  "head": 0,
+  "token_count": 5,
+  "tokens": [
+    "The",
+    " capital",
+    " of",
+    " France",
+    " is"
+  ],
+  "matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.817079,
+      0.182921,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.643596,
+      0.273486,
+      0.082918,
+      0.0,
+      0.0
+    ],
+    [
+      0.629924,
+      0.15365,
+      0.127303,
+      0.089123,
+      0.0
+    ],
+    [
+      0.529735,
+      0.218455,
+      0.083873,
+      0.099873,
+      0.068064
+    ]
+  ],
+  "top_weights": [
+    {
+      "source_index": 0,
+      "source_token": "The",
+      "target_index": 0,
+      "target_token": "The",
+      "weight": 1.0
+    },
+    {
+      "source_index": 1,
+      "source_token": " capital",
+      "target_index": 0,
+      "target_token": "The",
+      "weight": 0.817079
+    },
+    {
+      "source_index": 2,
+      "source_token": " of",
+      "target_index": 0,
+      "target_token": "The",
+      "weight": 0.643596
+    },
+    {
+      "source_index": 3,
+      "source_token": " France",
+      "target_index": 0,
+      "target_token": "The",
+      "weight": 0.629924
+    },
+    {
+      "source_index": 4,
+      "source_token": " is",
+      "target_index": 0,
+      "target_token": "The",
+      "weight": 0.529735
+    },
+    {
+      "source_index": 2,
+      "source_token": " of",
+      "target_index": 1,
+      "target_token": " capital",
+      "weight": 0.273486
+    },
+    {
+      "source_index": 4,
+      "source_token": " is",
+      "target_index": 1,
+      "target_token": " capital",
+      "weight": 0.218455
+    },
+    {
+      "source_index": 1,
+      "source_token": " capital",
+      "target_index": 1,
+      "target_token": " capital",
+      "weight": 0.182921
+    },
+    {
+      "source_index": 3,
+      "source_token": " France",
+      "target_index": 1,
+      "target_token": " capital",
+      "weight": 0.15365
+    },
+    {
+      "source_index": 3,
+      "source_token": " France",
+      "target_index": 2,
+      "target_token": " of",
+      "weight": 0.127303
+    },
+    {
+      "source_index": 4,
+      "source_token": " is",
+      "target_index": 3,
+      "target_token": " France",
+      "weight": 0.099873
+    },
+    {
+      "source_index": 3,
+      "source_token": " France",
+      "target_index": 3,
+      "target_token": " France",
+      "weight": 0.089123
+    },
+    {
+      "source_index": 4,
+      "source_token": " is",
+      "target_index": 2,
+      "target_token": " of",
+      "weight": 0.083873
+    },
+    {
+      "source_index": 2,
+      "source_token": " of",
+      "target_index": 2,
+      "target_token": " of",
+      "weight": 0.082918
+    },
+    {
+      "source_index": 4,
+      "source_token": " is",
+      "target_index": 4,
+      "target_token": " is",
+      "weight": 0.068064
+    }
+  ],
+  "is_causal_mask_applied": true,
+  "upper_triangle_zero": true,
+  "qkv": {
+    "layer": 0,
+    "head": 0,
+    "head_dim": 64,
+    "fused_c_attn_width": 2304,
+    "q_shape": [
+      5,
+      64
+    ],
+    "k_shape": [
+      5,
+      64
+    ],
+    "v_shape": [
+      5,
+      64
+    ],
+    "q_slice": [
+      0.396217,
+      0.084171,
+      0.432588,
+      -0.058185,
+      -1.045098,
+      0.064511,
+      -1.204318,
+      -0.190126,
+      -0.844207,
+      -0.063401,
+      -0.309973,
+      -0.578082,
+      0.348619,
+      0.119642,
+      -0.35733,
+      0.491669
+    ],
+    "k_slice": [
+      -2.088831,
+      2.330531,
+      2.309122,
+      -0.148869,
+      2.046005,
+      -0.210256,
+      1.613739,
+      -0.117998,
+      -1.180964,
+      0.767273,
+      1.284025,
+      0.237933,
+      0.457216,
+      -0.188757,
+      0.287679,
+      -0.245312
+    ],
+    "v_slice": [
+      0.20425,
+      -0.185885,
+      0.354418,
+      -0.326698,
+      -0.327784,
+      0.190117,
+      0.232186,
+      0.121861,
+      -0.140943,
+      -0.177149,
+      0.093824,
+      0.09271,
+      -0.196657,
+      0.044634,
+      0.907529,
+      0.043187
+    ],
+    "max_recomputed_difference": 0.0
+  },
+  "explanation": "In Layer 0, Head 0, self-attention computes query-key alignment scores: A = softmax((Q @ K^T) / sqrt(64) + M), where M is the causal attention mask. Because GPT-2 is an autoregressive decoder, the causal mask sets all upper-triangle positions (where target position > source position) to -infinity before softmax, ensuring tokens can only attend to past and current tokens (upper triangle = 0.0). In GPT-2, many tokens put most attention on the first token, so high weight on it does not mean it is the most important word. Notice: Attention weights represent dynamic routing of information across token positions, but attention alone is NOT a complete explanation of model reasoning; downstream non-linear activations (GELU) and feed-forward projections deeply reshape the final hidden representations.",
+  "data_origin": "Real model output"
+}

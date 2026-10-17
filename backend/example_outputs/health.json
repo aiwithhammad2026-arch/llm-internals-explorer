@@ -1,0 +1,9 @@
+{
+  "status": "initializing",
+  "model_loaded": false,
+  "model_name": "distilgpt2",
+  "device": "cpu",
+  "error_message": null,
+  "setup_guidance": null,
+  "data_origin": "Real model output"
+}

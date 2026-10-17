@@ -1,0 +1,48 @@
+{
+  "text": "The capital of France is",
+  "token_count": 5,
+  "token_ids": [
+    464,
+    3139,
+    286,
+    4881,
+    318
+  ],
+  "tokens": [
+    {
+      "index": 0,
+      "token_id": 464,
+      "token_str": "The",
+      "token_bytes_display": "The"
+    },
+    {
+      "index": 1,
+      "token_id": 3139,
+      "token_str": " capital",
+      "token_bytes_display": "\u2423capital"
+    },
+    {
+      "index": 2,
+      "token_id": 286,
+      "token_str": " of",
+      "token_bytes_display": "\u2423of"
+    },
+    {
+      "index": 3,
+      "token_id": 4881,
+      "token_str": " France",
+      "token_bytes_display": "\u2423France"
+    },
+    {
+      "index": 4,
+      "token_id": 318,
+      "token_str": " is",
+      "token_bytes_display": "\u2423is"
+    }
+  ],
+  "input_tensor_shape": [
+    1,
+    5
+  ],
+  "data_origin": "Real model output"
+}

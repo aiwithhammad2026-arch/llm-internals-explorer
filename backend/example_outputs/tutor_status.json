@@ -1,0 +1,6 @@
+{
+  "configured": false,
+  "model": "gemini-2.5-flash",
+  "status_message": "Add GEMINI_API_KEY to backend/.env to enable the AI Tutor.",
+  "data_origin": "Gemini-written explanation"
+}
