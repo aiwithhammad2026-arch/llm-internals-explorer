@@ -334,3 +334,33 @@ export interface LogitLensResponse {
   data_origin: DataOriginType;
 }
 
+export interface TokenAttributionItem {
+  token_index: number;
+  token_str: string;
+  attribution_score: number;
+  percentage: number;
+}
+
+export interface LayerRolloutStep {
+  layer: number;
+  layer_name: string;
+  rollout_matrix: number[][];
+  last_token_attribution: TokenAttributionItem[];
+}
+
+export interface AttentionRolloutResponse {
+  prompt: string;
+  tokens: string[];
+  token_count: number;
+  residual_weight: number;
+  head_reduction: string;
+  layer_steps: LayerRolloutStep[];
+  final_attribution: TokenAttributionItem[];
+  top_attributed_token: string;
+  top_attributed_score: number;
+  explanation: string;
+  explanation_origin?: DataOriginType;
+  data_origin: DataOriginType;
+}
+
+

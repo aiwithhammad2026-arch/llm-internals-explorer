@@ -20,7 +20,9 @@ from ..schemas import (
     LayerInspectionRequest,
     LayerInspectionResponse,
     LogitLensRequest,
-    LogitLensResponse
+    LogitLensResponse,
+    AttentionRolloutRequest,
+    AttentionRolloutResponse
 )
 from ..model_loader import model_manager
 from ..services.tokenizer_service import tokenize_text
@@ -29,6 +31,7 @@ from ..services.generation_service import predict_next_token, generate_text
 from ..services.attention_service import extract_attention
 from ..services.inspection_service import inspect_layer
 from ..services.logit_lens_service import compute_logit_lens
+from ..services.rollout_service import compute_attention_rollout
 from ..services.debug_service import scrub_sensitive_text
 
 router = APIRouter(prefix="/api", tags=["core"])
@@ -231,9 +234,25 @@ def post_logit_lens(req: LogitLensRequest) -> LogitLensResponse:
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=scrub_sensitive_text(str(ve))
         )
+@router.post("/attention-rollout", response_model=AttentionRolloutResponse)
+def post_attention_rollout(req: AttentionRolloutRequest) -> AttentionRolloutResponse:
+    """Computes recursive Attention Rollout across layers to quantify end-to-end token attribution."""
+    _ensure_model_ready()
+    try:
+        return compute_attention_rollout(
+            text=req.text,
+            residual_weight=req.residual_weight,
+            head_reduction=req.head_reduction
+        )
+    except ValueError as ve:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=scrub_sensitive_text(str(ve))
+        )
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Logit Lens extraction failed: {scrub_sensitive_text(str(e))}"
+            detail=f"Attention Rollout computation failed: {scrub_sensitive_text(str(e))}"
         )
+
 

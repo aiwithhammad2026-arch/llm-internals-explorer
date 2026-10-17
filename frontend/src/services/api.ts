@@ -19,6 +19,7 @@ import type {
   DebugInfoResponse,
   CompareModelsResponse,
   LogitLensResponse,
+  AttentionRolloutResponse,
 } from '../types/api';
 
 const API_BASE = '/api';
@@ -155,5 +156,14 @@ export const api = {
     request<LogitLensResponse>('/logit-lens', {
       method: 'POST',
       body: JSON.stringify({ text, token_index, top_k }),
+    }),
+  getAttentionRollout: (
+    text: string,
+    residual_weight: number = 0.5,
+    head_reduction: string = 'mean'
+  ) =>
+    request<AttentionRolloutResponse>('/attention-rollout', {
+      method: 'POST',
+      body: JSON.stringify({ text, residual_weight, head_reduction }),
     }),
 };

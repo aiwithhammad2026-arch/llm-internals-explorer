@@ -15,7 +15,7 @@ An interactive, production-grade educational web application that reveals and vi
   - Zero synthetic or mock data: every token ID, embedding slice, attention score, Q/K/V vector, and next-token probability is derived from real PyTorch tensor calculations.
 - **Frontend (React 18 / Vite / TypeScript / Tailwind CSS / Recharts):**
   - Dark-mode responsive dashboard designed for AI engineers, researchers, and students.
-  - Interactive views: Tokenization Inspector, Embedding Inspector, Next-Token Prediction, Attention Heatmap (with causal mask visualization), Q/K/V Inspector, Transformer Block Inspector, Model Comparison View, and Backend Debug Console.
+  - Interactive views: Tokenization Inspector, Embedding Inspector, Next-Token Prediction, Attention Heatmap (with causal mask visualization), Q/K/V Inspector, Transformer Block Inspector, Model Comparison View, Logit Lens & Residual Evolution, Attention Rollout & Token Attribution Flow, and Backend Debug Console.
   - Transparent provenance badges on every card: **Real model output**, **Educational explanation**, **Illustrative diagram**, and **Gemini-written explanation**.
 - **Gemini AI Tutor (Optional, Google GenAI SDK):**
   - Integrated with the modern `google-genai` SDK using `gemini-2.5-flash`.
@@ -103,7 +103,7 @@ Start-Process "http://localhost:5173"
 ```powershell
 cd backend
 
-# Run the complete test suite (35 automated tests)
+# Run the complete test suite (49 automated tests)
 .\venv\Scripts\python.exe -m pytest tests/ -v
 
 # Run only offline unit tests (mocked tests, 0 downloads or model loading)
@@ -325,11 +325,35 @@ assert max_diff < 1e-6
 print("VERIFIED: Logit Lens final layer is mathematically identical to output logits.")
 ```
 
+### Claim 9: Attention Rollout Preserves Strict Row Stochasticity ($\sum = 1.0$) and Causal Masking ($\max(R_{\text{upper}}) = 0.0$)
+Attention Rollout computes cumulative attention flow across multi-layer attention graphs:
+$R_0 = \hat{A}_0$, $R_l = \hat{A}_l R_{l-1}$ where $\hat{A}_l = \alpha \bar{A}_l + (1-\alpha) I$.
+Because each augmented layer matrix is row-stochastic and strictly lower-triangular (causal), the resulting rollout matrix $R_l$ preserves strict row stochasticity ($\sum_j R_{ij} = 1.0$) and strictly zero upper-triangle attribution:
+```python
+from app.services.rollout_service import compute_attention_rollout
+
+res = compute_attention_rollout("The capital of France is", residual_weight=0.5, head_reduction="mean")
+final_matrix = res.layer_steps[-1].rollout_matrix
+
+# Verify every row sums to 1.0 within numerical float tolerance
+for i, row in enumerate(final_matrix):
+    row_sum = sum(row)
+    assert abs(row_sum - 1.0) < 1e-5, f"Row {i} sum {row_sum} != 1.0"
+
+# Verify strictly zero attention flow to future tokens (upper triangle)
+for i in range(len(final_matrix)):
+    for j in range(i + 1, len(final_matrix)):
+        assert final_matrix[i][j] == 0.0, f"Upper triangle ({i}, {j}) = {final_matrix[i][j]} != 0.0"
+
+print("VERIFIED: Attention Rollout strictly preserves row stochasticity and causal masking.")
+print(f"Token 0 ('{res.tokens[0]}') cumulative attribution sink: {res.final_attribution[0].percentage:.2f}%")
+```
+
 ---
 
 ## Screenshots
 
-The web dashboard is fully interactive. Placeholders for the 7 core exploration views:
+The web dashboard is fully interactive. Placeholders for the 8 core exploration views:
 
 1. `screenshot_01_tokenization.png` — **Tokenization Inspector:** BPE token chips, token IDs, byte displays, and PyTorch tensor shape `[1, seq_len]`.
 2. `screenshot_02_embeddings.png` — **Embedding Inspector:** Interactive dimension-by-dimension bar chart comparing `wte`, `wpe`, and their combined sum.
@@ -338,6 +362,7 @@ The web dashboard is fully interactive. Placeholders for the 7 core exploration 
 5. `screenshot_05_block_inspection.png` — **Transformer Block Inspector:** Chronological waterfall diagram tracing activations across Pre-LN, self-attention, and MLP layers.
 6. `screenshot_06_model_comparison.png` — **Model Comparison & Debug Console:** Side-by-side `distilgpt2` vs `gpt2` architectural comparison and live request ring-buffer telemetry.
 7. `screenshot_07_logit_lens.png` — **Logit Lens & Residual Evolution:** Intermediate layer unembedding (`ln_f + lm_head`) tracing target token rank progression, Shannon entropy, and candidate emergence.
+8. `screenshot_08_attention_rollout.png` — **Attention Rollout & Token Attribution Flow:** Multi-layer cumulative attention propagation matrix, residual bypass interpolation ($\alpha$), and end-to-end token attribution bar chart identifying attention sinks.
 
 ---
 
@@ -356,7 +381,7 @@ Every item below is directly measured or numerically verified in the code:
 
 ## Security & Reliability Limits (Exact Code References)
 
-- **Input text max length:** 512 characters (`backend/app/schemas.py:L62, L97, L139, L180, L237, L287, L451`, `backend/app/config.py:L34`).
+- **Input text max length:** 512 characters (`backend/app/schemas.py:L62, L97, L139, L180, L237, L287, L456, L479, L524`, `backend/app/config.py:L34`).
 - **Generation limit (`max_new_tokens`):** 128 tokens max, default 20 tokens (`backend/app/schemas.py:L181`).
 - **Tutor question max length:** 500 characters (`backend/app/schemas.py:L339`).
 - **Tutor rate limit:** 20 requests per minute sliding window (`backend/app/services/gemini_service.py:L38`).

@@ -12,7 +12,8 @@ import {
   AlertCircle,
   Clock,
   X,
-  Sparkles
+  Sparkles,
+  GitBranch,
 } from 'lucide-react';
 import type { HealthResponse } from '../types/api';
 
@@ -21,6 +22,7 @@ export type ActiveTab =
   | 'embeddings'
   | 'predict'
   | 'attention'
+  | 'rollout'
   | 'blocks'
   | 'logit-lens'
   | 'tutor'
@@ -78,6 +80,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       phase: 'Phase 5',
       enabled: true,
       desc: 'Causal weights & head routing',
+    },
+    {
+      id: 'rollout' as ActiveTab,
+      label: 'Attention Rollout Flow',
+      icon: GitBranch,
+      phase: 'Phase 11',
+      enabled: true,
+      desc: 'Cumulative multi-layer attribution',
     },
     {
       id: 'blocks' as ActiveTab,

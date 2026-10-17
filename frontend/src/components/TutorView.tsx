@@ -115,6 +115,14 @@ export const TutorView: React.FC = () => {
         convergence_layers: 'Target rank #15114 at L0 -> #25 at L1 -> #4 at L5 -> #1 at L6',
         final_entropy_nats: 5.41,
       },
+      rollout: {
+        prompt: explainPrompt,
+        method: 'Attention Rollout (Abnar & Zuidema 2020)',
+        residual_weight: 0.5,
+        top_attributed_token: 'The',
+        top_attributed_share: '92.02%',
+        attention_sink_effect: 'Position 0 absorbs disproportionate cumulative credit across 6 layers',
+      },
     };
 
     try {
@@ -337,6 +345,7 @@ export const TutorView: React.FC = () => {
                   className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-indigo-500"
                 >
                   <option value="attention">Attention Heatmap & Q/K/V</option>
+                  <option value="rollout">Attention Rollout & Token Attribution</option>
                   <option value="blocks">Transformer Blocks (Pre-LN & MLP)</option>
                   <option value="logit-lens">Logit Lens & Residual Stream Evolution</option>
                   <option value="embeddings">Embedding Inspector (wte + wpe)</option>

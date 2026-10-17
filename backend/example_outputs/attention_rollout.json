@@ -1,0 +1,490 @@
+{
+  "prompt": "The capital of France is",
+  "tokens": [
+    "The",
+    " capital",
+    " of",
+    " France",
+    " is"
+  ],
+  "token_count": 5,
+  "residual_weight": 0.5,
+  "head_reduction": "mean",
+  "layer_steps": [
+    {
+      "layer": 0,
+      "layer_name": "Layer 0 (Block 0)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.290935,
+          0.709065,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.241739,
+          0.096067,
+          0.662194,
+          0.0,
+          0.0
+        ],
+        [
+          0.182951,
+          0.0623,
+          0.039641,
+          0.715108,
+          0.0
+        ],
+        [
+          0.181054,
+          0.060411,
+          0.038602,
+          0.044301,
+          0.675632
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.181054,
+          "percentage": 18.11
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.060411,
+          "percentage": 6.04
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.038602,
+          "percentage": 3.86
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.044301,
+          "percentage": 4.43
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.675632,
+          "percentage": 67.56
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "layer_name": "Layer 1 (Block 1)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.576211,
+          0.423789,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.475841,
+          0.170133,
+          0.354026,
+          0.0,
+          0.0
+        ],
+        [
+          0.40312,
+          0.119773,
+          0.086622,
+          0.390485,
+          0.0
+        ],
+        [
+          0.426666,
+          0.08651,
+          0.055021,
+          0.070022,
+          0.361782
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.426666,
+          "percentage": 42.67
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.08651,
+          "percentage": 8.65
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.055021,
+          "percentage": 5.5
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.070022,
+          "percentage": 7.0
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.361782,
+          "percentage": 36.18
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "layer_name": "Layer 2 (Block 2)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.756953,
+          0.243047,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.639712,
+          0.170985,
+          0.189303,
+          0.0,
+          0.0
+        ],
+        [
+          0.583808,
+          0.120401,
+          0.079621,
+          0.21617,
+          0.0
+        ],
+        [
+          0.590866,
+          0.095189,
+          0.056243,
+          0.060727,
+          0.196975
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.590866,
+          "percentage": 59.09
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.095189,
+          "percentage": 9.52
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.056243,
+          "percentage": 5.62
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.060727,
+          "percentage": 6.07
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.196975,
+          "percentage": 19.7
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "layer_name": "Layer 3 (Block 3)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.873298,
+          0.126702,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.803815,
+          0.099755,
+          0.096431,
+          0.0,
+          0.0
+        ],
+        [
+          0.766431,
+          0.076466,
+          0.045972,
+          0.111131,
+          0.0
+        ],
+        [
+          0.764644,
+          0.064541,
+          0.034287,
+          0.034921,
+          0.101607
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.764644,
+          "percentage": 76.46
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.064541,
+          "percentage": 6.45
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.034287,
+          "percentage": 3.43
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.034921,
+          "percentage": 3.49
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.101607,
+          "percentage": 10.16
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "layer_name": "Layer 4 (Block 4)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.934886,
+          0.065114,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.895702,
+          0.054723,
+          0.049575,
+          0.0,
+          0.0
+        ],
+        [
+          0.870523,
+          0.046289,
+          0.026074,
+          0.057113,
+          0.0
+        ],
+        [
+          0.866734,
+          0.039026,
+          0.019716,
+          0.021319,
+          0.053206
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.866734,
+          "percentage": 86.67
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.039026,
+          "percentage": 3.9
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.019716,
+          "percentage": 1.97
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.021319,
+          "percentage": 2.13
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.053206,
+          "percentage": 5.32
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "layer_name": "Layer 5 (Block 5)",
+      "rollout_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.963258,
+          0.036742,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.938111,
+          0.03395,
+          0.027939,
+          0.0,
+          0.0
+        ],
+        [
+          0.924336,
+          0.03028,
+          0.015197,
+          0.030187,
+          0.0
+        ],
+        [
+          0.920226,
+          0.025614,
+          0.012389,
+          0.013321,
+          0.028451
+        ]
+      ],
+      "last_token_attribution": [
+        {
+          "token_index": 0,
+          "token_str": "The",
+          "attribution_score": 0.920226,
+          "percentage": 92.02
+        },
+        {
+          "token_index": 1,
+          "token_str": " capital",
+          "attribution_score": 0.025614,
+          "percentage": 2.56
+        },
+        {
+          "token_index": 2,
+          "token_str": " of",
+          "attribution_score": 0.012389,
+          "percentage": 1.24
+        },
+        {
+          "token_index": 3,
+          "token_str": " France",
+          "attribution_score": 0.013321,
+          "percentage": 1.33
+        },
+        {
+          "token_index": 4,
+          "token_str": " is",
+          "attribution_score": 0.028451,
+          "percentage": 2.85
+        }
+      ]
+    }
+  ],
+  "final_attribution": [
+    {
+      "token_index": 0,
+      "token_str": "The",
+      "attribution_score": 0.920226,
+      "percentage": 92.02
+    },
+    {
+      "token_index": 1,
+      "token_str": " capital",
+      "attribution_score": 0.025614,
+      "percentage": 2.56
+    },
+    {
+      "token_index": 2,
+      "token_str": " of",
+      "attribution_score": 0.012389,
+      "percentage": 1.24
+    },
+    {
+      "token_index": 3,
+      "token_str": " France",
+      "attribution_score": 0.013321,
+      "percentage": 1.33
+    },
+    {
+      "token_index": 4,
+      "token_str": " is",
+      "attribution_score": 0.028451,
+      "percentage": 2.85
+    }
+  ],
+  "top_attributed_token": "The",
+  "top_attributed_score": 0.920226,
+  "explanation": "Attention Rollout (Abnar & Zuidema, 2020) quantifies cumulative information flow through multi-layer Transformers. Because representations pass through both multi-head attention and residual bypass highways (x = x + f(x)), isolated single-layer attention matrices only reflect local routing. By recursively accumulating adjusted attention matrices across all 6 layers, rollout reveals how much information from each input token reached the final prediction position. In GPT-2 architectures, position 0 ('The') frequently acts as an attention sink, absorbing 92.0% of cumulative flow, while later tokens contribute fine-grained syntactic and semantic context.",
+  "explanation_origin": "Educational explanation",
+  "data_origin": "Real model output"
+}

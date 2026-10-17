@@ -108,6 +108,13 @@ def main():
         json.dump(r_logit_lens.json(), f, indent=2)
     print("Saved logit_lens.json")
 
+    # 14. Attention Rollout (Phase 11)
+    r_rollout = client.post("/api/attention-rollout", json={"text": test_prompt, "residual_weight": 0.5, "head_reduction": "mean"})
+    assert r_rollout.status_code == 200
+    with open(os.path.join(out_dir, "attention_rollout.json"), "w", encoding="utf-8") as f:
+        json.dump(r_rollout.json(), f, indent=2)
+    print("Saved attention_rollout.json")
+
     print("\n=== Step 2: Numerical Consistency Verification ===")
     # Token 0 combined embedding slice from /api/embeddings
     emb_token0_slice = emb_data["tokens"][0]["combined_embedding_slice"]

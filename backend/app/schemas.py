@@ -519,3 +519,46 @@ class LogitLensResponse(BaseModel):
     explanation_origin: DataOriginType = "Educational explanation"
     data_origin: DataOriginType = "Real model output"
 
+
+class AttentionRolloutRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=512, description="Input text to analyze via Attention Rollout")
+    residual_weight: float = Field(0.5, ge=0.0, le=1.0, description="Weight (alpha) allocated to attention vs identity residual connection")
+    head_reduction: Literal["mean", "max", "min"] = Field("mean", description="Reduction strategy across attention heads")
+
+    @field_validator("text")
+    @classmethod
+    def validate_non_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("Text cannot be empty or whitespace only.")
+        return v
+
+
+class TokenAttributionItem(BaseModel):
+    token_index: int
+    token_str: str
+    attribution_score: float
+    percentage: float
+
+
+class LayerRolloutStep(BaseModel):
+    layer: int = Field(..., description="Layer index (0..5 for distilgpt2)")
+    layer_name: str
+    rollout_matrix: List[List[float]] = Field(..., description="Cumulative flow matrix [seq_len, seq_len] up to this layer")
+    last_token_attribution: List[TokenAttributionItem] = Field(..., description="Credit attribution from the last token to all input tokens")
+
+
+class AttentionRolloutResponse(BaseModel):
+    prompt: str
+    tokens: List[str]
+    token_count: int
+    residual_weight: float
+    head_reduction: str
+    layer_steps: List[LayerRolloutStep]
+    final_attribution: List[TokenAttributionItem] = Field(..., description="End-to-end token attribution for the next-token prediction position")
+    top_attributed_token: str
+    top_attributed_score: float
+    explanation: str = Field(..., description="Educational explanation of cumulative attention flow, residual identity, and attention sinks")
+    explanation_origin: DataOriginType = "Educational explanation"
+    data_origin: DataOriginType = "Real model output"
+
+
