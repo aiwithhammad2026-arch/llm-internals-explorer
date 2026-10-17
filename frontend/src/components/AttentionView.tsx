@@ -71,8 +71,13 @@ export const AttentionView: React.FC<AttentionViewProps> = ({
     }
   };
 
+  const textRef = React.useRef(text);
   useEffect(() => {
-    handleFetchAttention(initialPrompt, layer, head);
+    textRef.current = text;
+  }, [text]);
+
+  useEffect(() => {
+    handleFetchAttention(textRef.current, layer, head);
   }, [layer, head]);
 
   // Prepare Q/K/V chart data for first 16 dimensions

@@ -54,7 +54,7 @@ export const ModelComparisonView: React.FC<ModelComparisonViewProps> = ({
 
   useEffect(() => {
     handleCompare(initialPrompt);
-  }, []);
+  }, [initialPrompt]);
 
   // Format dual-bar chart data: top 10 candidates side-by-side
   const chartData = data

@@ -45,7 +45,7 @@ export const TokenizationView: React.FC<TokenizationViewProps> = ({
 
   useEffect(() => {
     handleTokenize(initialPrompt);
-  }, []);
+  }, [initialPrompt]);
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto">

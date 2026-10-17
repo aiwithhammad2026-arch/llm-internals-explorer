@@ -70,8 +70,13 @@ export const BlockInspectionView: React.FC<BlockInspectionViewProps> = ({
     }
   };
 
+  const textRef = React.useRef(text);
   useEffect(() => {
-    handleInspect(text, layer, tokenIndex);
+    textRef.current = text;
+  }, [text]);
+
+  useEffect(() => {
+    handleInspect(textRef.current, layer, tokenIndex);
   }, [layer, tokenIndex]);
 
   // Visual styling dictionary for flow components

@@ -48,7 +48,7 @@ export const EmbeddingView: React.FC<EmbeddingViewProps> = ({
 
   useEffect(() => {
     handleFetchEmbeddings(initialPrompt);
-  }, []);
+  }, [initialPrompt]);
 
   const currentToken: TokenEmbeddingItem | undefined = data?.tokens[selectedTokenIdx];
 

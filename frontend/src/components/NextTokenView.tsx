@@ -91,8 +91,8 @@ export const NextTokenView: React.FC<NextTokenViewProps> = ({
   };
 
   useEffect(() => {
-    handlePredict(initialPrompt, temperature, topK);
-  }, []);
+    handlePredict(initialPrompt, 0.7, 5);
+  }, [initialPrompt]);
 
   // Format chart data
   const chartData = predictData?.top_candidates.map((c) => ({
