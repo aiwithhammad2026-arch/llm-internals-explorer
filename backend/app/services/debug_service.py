@@ -26,7 +26,7 @@ _request_counter: int = 0
 _WINDOWS_PATH_REGEX = re.compile(r'[a-zA-Z]:[\\/][^ \t\n\r"\'<>]+')
 _UNIX_PATH_REGEX = re.compile(r'(?:/[a-zA-Z0-9_\.\-]+){2,}')
 _KEY_PREFIX = "AI" + "za"
-_KEY_REGEX = re.compile(rf"{_KEY_PREFIX}[0-9A-Za-z-_]{35}")
+_KEY_REGEX = re.compile(rf"{_KEY_PREFIX}[0-9A-Za-z-_]{{35}}")
 
 def scrub_sensitive_text(text: str) -> str:
     """Removes filesystem paths, API keys, and environment paths from strings."""

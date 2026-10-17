@@ -69,6 +69,8 @@ GEMINI_MODEL=gemini-2.5-flash
 ```
 *(If left empty or unset, the application functions fully with zero errors, and the Tutor panel will display a clear instruction to add a key).*
 
+> **Security Note:** Never commit your real .env file. The `.env` file contains your private API key and is already excluded via `.gitignore`. Keep your secrets safe.
+
 ### 4. Run the Backend Server
 
 ```powershell

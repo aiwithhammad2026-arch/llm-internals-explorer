@@ -18,7 +18,8 @@ from app.services import debug_service
 
 client = TestClient(app)
 
-SECRET_KEY_FOR_TEST = "DUMMY_SECRET_KEY_FOR_DEBUG_TEST_8888"
+_KEY_PREFIX = "AI" + "za"
+SECRET_KEY_FOR_TEST = f"{_KEY_PREFIX}SyDUMMY_SECRET_KEY_FOR_DEBUG_TEST_8888"
 
 def test_debug_logs_capture_and_clear():
     """Verify that requests are recorded in the ring buffer and can be cleared."""
@@ -78,7 +79,7 @@ def test_debug_info_content_and_sanitization():
     assert data["data_origin"] == "Real model output"
 
     content_str = response.text
-    assert "AI" + "za" not in content_str
+    assert _KEY_PREFIX not in content_str
     assert "\\" not in data["torch_version"]
 
 def test_compare_models_rejects_unallowed_model():
